@@ -1,0 +1,44 @@
+name: Merge dev to main with tag confirmation
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  merge-and-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Check for tag on dev branch
+      id: check_tag
+      run: |
+        git fetch --tags
+        TAG_EXISTS=$(git tag --contains HEAD | wc -l)
+        echo "::set-output name=tag_exists::$TAG_EXISTS"
+
+    - name: Fail if no tag exists
+      if: steps.check_tag.outputs.tag_exists == '0'
+      run: |
+        echo "No tag found on the commit in dev branch. Aborting merge."
+        exit 1
+
+    - name: Merge dev into main
+      if: steps.check_tag.outputs.tag_exists != '0'
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git checkout main
+        git pull origin main
+        git merge dev
+        git push origin main
+
+    - name: Tag the new main commit
+      if: steps.check_tag.outputs.tag_exists != '0'
+      run: |
+        NEW_TAG="release-$(date +'%Y%m%d%H%M%S')"
+        git tag $NEW_TAG
+        git push origin $NEW_TAG
