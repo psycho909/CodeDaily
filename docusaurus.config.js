@@ -61,9 +61,8 @@ const config = {
 			// Replace with your project's social card
 			image: "img/docusaurus-social-card.jpg",
 			navbar: {
-				title: "My Site",
+				title: "CodeDaily",
 				logo: {
-					alt: "My Site Logo",
 					src: "img/logo.svg"
 				},
 				items: [
@@ -71,22 +70,15 @@ const config = {
 						type: "docSidebar",
 						sidebarId: "tutorialSidebar",
 						position: "left",
-						label: "Tutorial"
-					},
-					{ to: "/blog", label: "Blog", position: "left" },
-					{ to: "/test", label: "Test", position: "left" },
-					{
-						href: "https://github.com/facebook/docusaurus",
-						label: "GitHub",
-						position: "right"
+						label: "筆記"
 					}
 				]
 			},
 			algolia: {
 				// The application ID provided by Algolia
-				appId: "LENVWU2QVH",
-				apiKey: "8e31c148b1a51c01a168898ea3c6e3e8",
-				indexName: "codedaily", // Optional: see doc section below
+				appId: "Q3ZBBWQL3Z",
+				apiKey: "a1b39721bb186f3d512d85415ae0021e",
+				indexName: "netlify_96390bb1-8a62-41e0-9f47-a59c73090db6_main_all", // Optional: see doc section below
 				contextualSearch: true,
 
 				// Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
