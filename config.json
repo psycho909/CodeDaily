@@ -1,6 +1,7 @@
 {
 	"index_name": "codedaily",
 	"start_urls": ["https://codedaily123.netlify.app/"],
+	"sitemap_urls": ["https://codedaily123.netlify.app/sitemap.xml"],
 	"sitemap_alternate_links": true,
 	"stop_urls": ["/tests"],
 	"selectors": {

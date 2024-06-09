@@ -8,6 +8,13 @@ import Heading from "@theme/Heading";
 import styles from "./index.module.css";
 
 function HomepageHeader() {
+	algoliasearchNetlify({
+		appId: "Q3ZBBWQL3Z",
+		apiKey: "<YOUR_ALGOLIA_SEARCH_API_KEY>",
+		siteId: "b4cf34ade071cd046d88af6c7436ebbb",
+		branch: "main",
+		selector: "div#search"
+	});
 	const { siteConfig } = useDocusaurusContext();
 	return (
 		<header className={clsx("hero hero--primary", styles.heroBanner)}>

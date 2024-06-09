@@ -33,6 +33,8 @@ const config = {
 		defaultLocale: "zh-Hant",
 		locales: ["zh-Hant"]
 	},
+	stylesheets: ["https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"],
+	scripts: ["https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"],
 	presets: [
 		[
 			"classic",
@@ -77,7 +79,7 @@ const config = {
 			algolia: {
 				// The application ID provided by Algolia
 				appId: "Q3ZBBWQL3Z",
-				apiKey: "a1b39721bb186f3d512d85415ae0021e",
+				apiKey: "b4cf34ade071cd046d88af6c7436ebbb",
 				indexName: "netlify_96390bb1-8a62-41e0-9f47-a59c73090db6_main_all", // Optional: see doc section below
 				contextualSearch: true,
 
