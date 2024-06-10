@@ -33,8 +33,6 @@ const config = {
 		defaultLocale: "zh-Hant",
 		locales: ["zh-Hant"]
 	},
-	stylesheets: ["https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"],
-	scripts: ["https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"],
 	presets: [
 		[
 			"classic",
@@ -56,97 +54,111 @@ const config = {
 			})
 		]
 	],
-
-	themeConfig:
-		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-		({
-			// Replace with your project's social card
-			image: "img/docusaurus-social-card.jpg",
-			navbar: {
-				title: "CodeDaily",
-				logo: {
-					src: "img/logo.svg"
-				},
-				items: [
-					{
-						type: "docSidebar",
-						sidebarId: "tutorialSidebar",
-						position: "left",
-						label: "筆記"
-					}
-				]
-			},
-			algolia: {
-				// The application ID provided by Algolia
-				appId: "Q3ZBBWQL3Z",
-				apiKey: "b4cf34ade071cd046d88af6c7436ebbb",
-				indexName: "netlify_96390bb1-8a62-41e0-9f47-a59c73090db6_main_all", // Optional: see doc section below
-				contextualSearch: true,
-
-				// Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-				externalUrlRegex: "external\\.com|domain\\.com",
-
-				// Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
-				replaceSearchResultPathname: {
-					from: "/docs/", // or as RegExp: /\/docs\//
-					to: "/"
-				},
-
-				// Optional: Algolia search parameters
-				searchParameters: {},
-
-				// Optional: path for search page that enabled by default (`false` to disable it)
-				searchPagePath: "search",
-
-				// Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
-				insights: false
-			},
-			footer: {
-				style: "dark",
-				links: [
-					{
-						title: "Docs",
-						items: [
-							{
-								label: "Tutorial",
-								to: "/docs/intro"
-							}
-						]
-					},
-					{
-						title: "Community",
-						items: [
-							{
-								label: "Stack Overflow",
-								href: "https://stackoverflow.com/questions/tagged/docusaurus"
-							},
-							{
-								label: "Discord",
-								href: "https://discordapp.com/invite/docusaurus"
-							},
-							{
-								label: "Twitter",
-								href: "https://twitter.com/docusaurus"
-							}
-						]
-					},
-					{
-						title: "More",
-						items: [
-							{
-								label: "GitHub",
-								href: "https://github.com/facebook/docusaurus"
-							}
-						]
-					}
-				],
-				copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`
-			},
-			prism: {
-				theme: prismThemes.github,
-				darkTheme: prismThemes.dracula
+	themes: [
+		[
+			"@docusaurus/theme-search-algolia",
+			{
+				id: "algolia-search-1" // 分配唯一的 ID
 			}
-		})
+		]
+	],
+	themeConfig: {
+		// Replace with your project's social card
+		metadata: [
+			{
+				name: "description",
+				content: "这是首页的 meta description。"
+			},
+			{ name: "keywords", content: "CodeDaily, HTML, CSS, JavaScript, JS, frontend development, web development, coding tutorials, programming, web design, learn HTML, learn CSS, learn JavaScript, Vue.js, React.js, web development blog, frontend blog, coding blog, daily coding tips, web development tutorials, frontend frameworks, web development tools" },
+			{ name: "author", content: "CHIN CHEN" },
+			{ name: "robots", content: "index, follow" }
+		],
+		image: "img/docusaurus-social-card.jpg",
+		navbar: {
+			title: "CodeDaily",
+			logo: {
+				src: "img/logo.svg"
+			},
+			items: [
+				{
+					type: "docSidebar",
+					sidebarId: "tutorialSidebar",
+					position: "left",
+					label: "筆記"
+				}
+			]
+		},
+		algolia: {
+			// The application ID provided by Algolia
+			appId: "Q3ZBBWQL3Z",
+			apiKey: "b4cf34ade071cd046d88af6c7436ebbb",
+			indexName: "netlify_96390bb1-8a62-41e0-9f47-a59c73090db6_main_all", // Optional: see doc section below
+			contextualSearch: true,
+
+			// Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+			externalUrlRegex: "external\\.com|domain\\.com",
+
+			// Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+			replaceSearchResultPathname: {
+				from: "/docs/", // or as RegExp: /\/docs\//
+				to: "/"
+			},
+
+			// Optional: Algolia search parameters
+			searchParameters: {},
+
+			// Optional: path for search page that enabled by default (`false` to disable it)
+			searchPagePath: false,
+
+			// Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+			insights: false
+		},
+		footer: {
+			style: "dark",
+			links: [
+				{
+					title: "Docs",
+					items: [
+						{
+							label: "Tutorial",
+							to: "/docs/intro"
+						}
+					]
+				},
+				{
+					title: "Community",
+					items: [
+						{
+							label: "Stack Overflow",
+							href: "https://stackoverflow.com/questions/tagged/docusaurus"
+						},
+						{
+							label: "Discord",
+							href: "https://discordapp.com/invite/docusaurus"
+						},
+						{
+							label: "Twitter",
+							href: "https://twitter.com/docusaurus"
+						}
+					]
+				},
+				{
+					title: "More",
+					items: [
+						{
+							label: "GitHub",
+							href: "https://github.com/facebook/docusaurus"
+						}
+					]
+				}
+			],
+			copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`
+		},
+		prism: {
+			theme: prismThemes.github,
+			darkTheme: prismThemes.dracula
+		}
+	}
 };
 
 export default config;
