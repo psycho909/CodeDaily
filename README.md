@@ -1,5 +1,9 @@
 # Website
 
+```text
+rimraf node_modules
+```
+
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
